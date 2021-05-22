@@ -1,6 +1,6 @@
 /*
 npm install nodemon -g (start server)
-npm install body body-parser --save (body->POST)
+npm install body-parser --save (body->POST)
 */
 
 let usuarios = [
