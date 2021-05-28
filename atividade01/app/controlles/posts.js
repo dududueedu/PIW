@@ -18,7 +18,7 @@ module.exports.listarPostsPorId = function (req, res) {
     if (VerPost)
         res.json(VerPost)
     else
-        res.status(404).json({ mensagem: "Usuario nao encontrado" })
+        res.status(404).json({ mensagem: "Post nao encontrado" })
 }
 
 // Controller to POST
@@ -34,5 +34,5 @@ module.exports.excluirPost = function(req, res){
     posts = posts.filter(function(post){
         return post.id != id_
     })
-    res.json({mensagem: "Usuario excluído."})
+    res.json({mensagem: "Post excluído."})
 }
