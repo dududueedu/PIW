@@ -3,11 +3,6 @@ rodar cliente ->>> .\mongo.exe*/
 const Usuario = require("../models/UsuarioM")
 const View = require("../views/UsuarioV")
 
-let usuarios = [
-    { id: 1, nome: "Victor", email: "victor.aefarias@gmail.com", senha: "123" },
-    { id: 5, nome: "Joao", email: "joao@gmail.com", senha: "456" },
-    { id: 10, nome: "Eduardo", email: "eduardosilva@gmail.com", senha: "789" }
-]
 // Controller to GET-get-nome
 module.exports.listarUsuarios = function (req, res) {
     let promise = Usuario.find().exec()
@@ -17,7 +12,7 @@ module.exports.listarUsuarios = function (req, res) {
         }
     ).catch(
         function (error) {
-            res.status(500).json({ mensagem: "Não foi possível listar os usuários." })
+            res.status(500).json({ mensagem: "Não foi possível listar os usuários.", error: error })
         }
     )
 }
@@ -25,14 +20,17 @@ module.exports.listarUsuarios = function (req, res) {
 // Controller to GET-id
 module.exports.listarUsuariosPorId = function (req, res) {
     let id_ = req.params.id
-    let usuario = usuarios.find(function (user) {
-        return user.id == id_
-    })
+    let promise = Usuario.findById(id_).exec()
 
-    if (usuario)
-        res.json(usuario)
-    else
-        res.status(404).json({ mensagem: "Usuario nao encontrado" })
+    promise.then(
+        function (usuario) {
+            res.json(View.render(usuario))
+        }
+    ).catch(
+        function (error) {
+            res.status(404).json({ mensagem: "Usuário não encontrado.", error: error })
+        }
+    )
 }
 
 // Controller to POST
@@ -43,15 +41,22 @@ module.exports.inserirUsuario = function(req, res){
     promisse.then(function (usuario){
         res.status(201).json( View.render(usuario) )
     }).catch(function (error){
-        res.status(400).json({mensagem: "sua requisição falhou!"})
+        res.status(400).json({ mensagem: "Sua requisição falhou!", error: error })
     })
 }
 
 // Controller to DELETE-id
 module.exports.excluirUsuario = function(req, res){
     let id_ = req.params.id
-    usuarios = usuarios.filter(function(user){
-        return user.id != id_
-    })
-    res.json({mensagem: "Usuario excluído."})
+    let promise = Usuario.findByIdAndDelete(id_)
+
+    promise.then(
+        function (usuario) {
+            res.status(200).json(View.render(usuario))
+        }
+    ).catch(
+        function (error) {
+            res.status(400).json({ mensagem: "Não foi possível remover usuário.", error: error })
+        }
+    )
 }
