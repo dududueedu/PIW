@@ -1,6 +1,7 @@
 /*rodar server ->>>> .\mongod.exe --dbpath=./datadir
 rodar cliente ->>> .\mongo.exe*/
 const Usuario = require("../models/UsuarioM")
+const View = require("../views/UsuarioV")
 
 let usuarios = [
     { id: 1, nome: "Victor", email: "victor.aefarias@gmail.com", senha: "123" },
@@ -12,7 +13,7 @@ module.exports.listarUsuarios = function (req, res) {
     let promise = Usuario.find().exec()
     promise.then(
         function (usuarios) {
-            res.status(200).json(usuarios)
+            res.status(200).json(View.renderMany(usuarios))
         }
     ).catch(
         function (error) {
@@ -40,7 +41,7 @@ module.exports.inserirUsuario = function(req, res){
     let promisse = Usuario.create(usuario)
 
     promisse.then(function (usuario){
-        res.status(201).json(usuario)
+        res.status(201).json( View.render(usuario) )
     }).catch(function (error){
         res.status(400).json({mensagem: "sua requisição falhou!"})
     })
