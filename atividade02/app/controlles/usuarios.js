@@ -1,7 +1,6 @@
-/*
-npm install nodemon -g (start server)
-npm install body-parser --save (body->POST)
-*/
+/*rodar server ->>>> .\mongod.exe --dbpath=./datadir
+rodar cliente ->>> .\mongo.exe*/
+const Usuario = require("../models/UsuarioM")
 
 let usuarios = [
     { id: 1, nome: "Victor", email: "victor.aefarias@gmail.com", senha: "123" },
@@ -10,20 +9,16 @@ let usuarios = [
 ]
 // Controller to GET-get-nome
 module.exports.listarUsuarios = function (req, res) {
-    let usuariosReturn = usuarios
-    let cont = 0
-    if (req.query.nome) {
-        let name = req.query.nome
-        usuariosReturn = usuariosReturn.filter(function (user) {
-            if (user.nome == name) {
-                cont++
-                return user.nome == name;
-            }
-        })
-        if (cont == 0)
-            res.status(404)
-    }
-    res.json(usuariosReturn)
+    let promise = Usuario.find().exec()
+    promise.then(
+        function (usuarios) {
+            res.status(200).json(usuarios)
+        }
+    ).catch(
+        function (error) {
+            res.status(500).json({ mensagem: "Não foi possível listar os usuários." })
+        }
+    )
 }
 
 // Controller to GET-id
@@ -42,8 +37,13 @@ module.exports.listarUsuariosPorId = function (req, res) {
 // Controller to POST
 module.exports.inserirUsuario = function(req, res){
     let usuario = req.body
-    usuarios.push(usuario)
-    res.status(201).json(usuario)
+    let promisse = Usuario.create(usuario)
+
+    promisse.then(function (usuario){
+        res.status(201).json(usuario)
+    }).catch(function (error){
+        res.status(400).json({mensagem: "sua requisição falhou!"})
+    })
 }
 
 // Controller to DELETE-id
