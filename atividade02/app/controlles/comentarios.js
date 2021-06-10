@@ -19,10 +19,10 @@ module.exports.listarComentarios = function (req, res) {
 // Controller to GET-id
 module.exports.listarComentariosPorId = function (req, res) {
     let id_ = req.params.id
-    let promise = Post.findById(id_).exec()
+    let promise = Comentario.findById(id_).exec()
 
-    promise.then(function (post) {
-        res.status(200).json((post))
+    promise.then(function (comentario) {
+        res.status(200).json((comentario))
     }
     ).catch(
         function (error) {
