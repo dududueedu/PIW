@@ -11,7 +11,7 @@ module.exports.listarPosts = function (req, res) {
         }
     ).catch(
         function (error) {
-            res.status(500).json({ mensagem: "Não foi possível listar os usuários.", error: error })
+            res.status(500).json({ mensagem: "Não foi possível listar os Posts.", error: error })
         }
     )
 }
