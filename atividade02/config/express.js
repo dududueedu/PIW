@@ -2,6 +2,7 @@
 const express = require('express')
 const routerUsuarios = require('../app/routes/usuarios')
 const routerPosts = require('../app/routes/posts')
+const routerComentarios = require('../app/routes/comentarios')
 const bodyParser = require("body-parser")
 
 module.exports = function () {
@@ -16,5 +17,7 @@ module.exports = function () {
 
     routerUsuarios(app)
     routerPosts(app)
+    routerComentarios(app)
+    
     return app
 }
