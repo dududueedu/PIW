@@ -4,12 +4,12 @@ const Usuario = require('./UsuarioM')
 module.exports = function() {
     let schema = mongoose.Schema({
         texto: {
-            type: "String",
+            type: String,
             required: true
         },
 
         likes:{
-            type: "Number",
+            type: Number,
             required: true
         },
 
