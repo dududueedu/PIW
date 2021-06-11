@@ -1,5 +1,5 @@
 const Comentario = require("../models/ComentarioM")
-//const ViewComentario = require("../views/")
+const ViewComentario = require("../views/ComentarioV")
 
 // Controller to GET
 module.exports.listarComentarios = function (req, res) {
@@ -7,7 +7,7 @@ module.exports.listarComentarios = function (req, res) {
 
     promise.then(
         function (comentarios) {
-            res.status(200).json(comentarios)
+            res.status(200).json(ViewComentario.renderMany(comentarios))
         }
     ).catch(
         function (error) {
@@ -22,7 +22,7 @@ module.exports.listarComentariosPorId = function (req, res) {
     let promise = Comentario.findById(id_).exec()
 
     promise.then(function (comentario) {
-        res.status(200).json((comentario))
+        res.status(200).json(ViewComentario.render(comentario))
     }
     ).catch(
         function (error) {
@@ -37,7 +37,7 @@ module.exports.inserirComentarios = function(req, res){
 
     promise.then(
         function (comentario) {
-            res.status(201).json((comentario))
+            res.status(201).json(ViewComentario.render(comentario))
         }
     ).catch(
         function (error) {
@@ -53,7 +53,7 @@ module.exports.excluirComentarios = function(req, res){
 
     promise.then(
         function (comentario) {
-            res.status(200).json((comentario))
+            res.status(200).json(ViewComentario.render(comentario))
         }
     ).catch(
         function (error) {
