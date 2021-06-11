@@ -1,7 +1,9 @@
 /*rodar server ->>>> .\mongod.exe --dbpath=./datadir
 rodar cliente ->>> .\mongo.exe*/
 const Usuario = require("../models/UsuarioM")
-const View = require("../views/UsuarioV")
+const Post = require("../models/PostM")
+const ViewPost = require("../views/PostV")
+const View = require("../views/UsuarioV") 
 
 // Controller to GET-get-nome
 module.exports.listarUsuarios = function (req, res) {
@@ -57,6 +59,21 @@ module.exports.excluirUsuario = function(req, res){
     ).catch(
         function (error) {
             res.status(400).json({ mensagem: "Não foi possível remover usuário.", error: error })
+        }
+    )
+}
+
+module.exports.buscarPostsUsuarioPorID = function(req, res){
+    let id_usuario = req.params.id
+    let promise = Post.find({ id_usuario: id_usuario })
+
+    promise.then(
+        function (posts) {
+            res.json(ViewPost.renderMany(posts))
+        }
+    ).catch(
+        function (error) {
+            res.status(404).json({ mensagem: "Posts não encontrados.", error: error })
         }
     )
 }
