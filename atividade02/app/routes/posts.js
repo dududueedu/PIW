@@ -1,6 +1,6 @@
 const controller = require("../controlles/posts")
 
-module.exports = function(app){
+module.exports = function (app) {
     // GET posts
     app.get("/api/posts", controller.listarPosts)
 
@@ -12,4 +12,7 @@ module.exports = function(app){
 
     // DELETE post por ID
     app.delete("/api/posts/:id", controller.excluirPost)
+
+    // GET todos os comentarios do post
+    app.get("/api/posts/:id/comentarios", controller.buscarComentarioPostID)
 }

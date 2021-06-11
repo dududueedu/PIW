@@ -1,5 +1,7 @@
 const Post = require("../models/PostM")
 const ViewPost = require("../views/PostV")
+const Comentario = require("../models/ComentarioM")
+const ViewComentario = require("../views/ComentarioV")
 
 // Controller to GET
 module.exports.listarPosts = function (req, res) {
@@ -58,6 +60,21 @@ module.exports.excluirPost = function(req, res){
     ).catch(
         function (error) {
             res.status(400).json({ mensagem: "Não foi possível remover.", error: error })
+        }
+    )
+}
+
+module.exports.buscarComentarioPostID = function(req, res){
+    let idPost = req.params.id
+    let promise = Comentario.find({ id_post: idPost }).exec()
+
+    promise.then(
+        function (comentarios) {
+            res.json(ViewComentario.renderMany(comentarios))
+        }
+    ).catch(
+        function (error) {
+            res.status(404).json({ mensagem: "Comentários não encontrados.", error: error })
         }
     )
 }
