@@ -1,6 +1,10 @@
 const controller = require("../controlles/usuarios")
+const controllerAuthUsers = require("../controlles/authUsers")
 
 module.exports = function(app){
+    //post login
+    app.post("/api/usuarios/signin", controllerAuthUsers.logar)
+
     // GET usuarios
     app.get("/api/usuarios", controller.listarUsuarios)
 
