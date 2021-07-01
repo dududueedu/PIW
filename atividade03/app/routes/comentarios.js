@@ -1,6 +1,9 @@
 const controller = require("../controlles/comentarios")
+const controllerAuthUsers = require("../controlles/authUsers")
 
 module.exports = function(app){
+
+    app.use("/api/comentarios", controllerAuthUsers.checar)
     // GET comentarios
     app.get("/api/comentarios", controller.listarComentarios)
 

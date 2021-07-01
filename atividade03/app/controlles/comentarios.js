@@ -1,5 +1,6 @@
 const Comentario = require("../models/ComentarioM")
 const ViewComentario = require("../views/ComentarioV")
+const jwt = require("jsonwebtoken")
 
 // Controller to GET
 module.exports.listarComentarios = function (req, res) {
@@ -33,7 +34,11 @@ module.exports.listarComentariosPorId = function (req, res) {
 
 // Controller to POST
 module.exports.inserirComentarios = function(req, res){
-    let promise = Comentario.create(req.body)
+    let token = req.headers.token;
+    let paypload = jwt.decode(token);
+    let id_usuario_logado = paypload.id;
+    
+    let promise = Comentario.create({texto: req.body.texto, id_post: req.body.id_post, id_usuario: id_usuario_logado})
 
     promise.then(
         function (comentario) {
