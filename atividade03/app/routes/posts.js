@@ -1,6 +1,9 @@
 const controller = require("../controlles/posts")
+const controllerAuthUsers = require("../controlles/authUsers")
 
 module.exports = function (app) {
+    
+    app.use("/api/posts", controllerAuthUsers.checar)
     // GET posts
     app.get("/api/posts", controller.listarPosts)
 
