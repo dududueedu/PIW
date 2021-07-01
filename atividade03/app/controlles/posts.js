@@ -2,6 +2,7 @@ const Post = require("../models/PostM")
 const ViewPost = require("../views/PostV")
 const Comentario = require("../models/ComentarioM")
 const ViewComentario = require("../views/ComentarioV")
+const jwt = require("jsonwebtoken")
 
 // Controller to GET
 module.exports.listarPosts = function (req, res) {
@@ -35,7 +36,11 @@ module.exports.listarPostsPorId = function (req, res) {
 
 // Controller to POST
 module.exports.inserirPost = function(req, res){
-    let promise = Post.create(req.body)
+    let token = req.headers.token;
+    let paypload = jwt.decode(token);
+    let id_usuario_logado = paypload.id;
+
+    let promise = Post.create({texto: req.body.texto, likes: req.body.likes, id_usuario: id_usuario_logado})
 
     promise.then(
         function (post) {
