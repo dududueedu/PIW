@@ -33,12 +33,12 @@ module.exports.listarComentariosPorId = function (req, res) {
 }
 
 // Controller to POST
-module.exports.inserirComentarios = function(req, res){
+module.exports.inserirComentarios = function (req, res) {
     let token = req.headers.token;
     let paypload = jwt.decode(token);
     let id_usuario_logado = paypload.id;
-    
-    let promise = Comentario.create({texto: req.body.texto, id_post: req.body.id_post, id_usuario: id_usuario_logado})
+
+    let promise = Comentario.create({ texto: req.body.texto, id_post: req.body.id_post, id_usuario: id_usuario_logado })
 
     promise.then(
         function (comentario) {
@@ -52,17 +52,20 @@ module.exports.inserirComentarios = function(req, res){
 }
 
 // Controller to DELETE-id
-module.exports.excluirComentarios = function(req, res){
-    let id_ = req.params.id
-    let promise = Comentario.findByIdAndDelete(id_)
+module.exports.excluirComentarios = function (req, res) {
+    let idComentario = req.params.id
+    let token = req.headers.token
+    let paypload = jwt.decode(token)
+    let id_userLogado = paypload.id
 
-    promise.then(
-        function (comentario) {
-            res.status(200).json(ViewComentario.render(comentario))
-        }
-    ).catch(
-        function (error) {
-            res.status(400).json({ mensagem: "Não foi possível remover.", error: error })
-        }
-    )
+    let promise = Comentario.findOneAndDelete({_id: idComentario, id_usuario: id_userLogado})
+        promise.then(
+            function (comentario) {
+                res.status(200).json(ViewComentario.render(comentario))
+            }
+        ).catch(
+            function (error) {
+                res.status(400).json({ mensagem: "Não foi possível remover.", error: error })
+            }
+        )
 }
