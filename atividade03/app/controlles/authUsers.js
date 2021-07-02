@@ -7,7 +7,7 @@ module.exports.logar = function (req, res) {
         .then(function (user) {
             if (bcrypt.compareSync(req.body.senha, user.senha)) {
                 let token = jwt.sign({ id: user.id }, "senhaSecreta")
-                res.status(200).json({ token: token })
+                res.status(200).json({ token: token , id_usuario: user.id})
             }
             res.status(401).send("credenciais inválidas!")
         })
