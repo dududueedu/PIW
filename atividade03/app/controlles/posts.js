@@ -55,9 +55,13 @@ module.exports.inserirPost = function(req, res){
 
 // Controller to DELETE-id
 module.exports.excluirPost = function(req, res){
-    let id_ = req.params.id
-    let promise = Post.findByIdAndDelete(id_)
 
+    let idPost = req.params.id
+    let token = req.headers.token
+    let paypload = jwt.decode(token)
+    let id_userLogado = paypload.id
+
+    let promise = Post.findOneAndDelete({_id: idPost, id_usuario: id_userLogado})
     promise.then(
         function (post) {
             res.status(200).json(ViewPost.render(post))
