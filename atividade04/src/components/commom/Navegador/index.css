@@ -11,6 +11,26 @@
     align-items: center;
 }
 .my-logo{
-    height: 40px;
-    margin-left: 6px;
+    height: 45px;
+    margin-left: 15px;
+}
+.nav-direita{
+    margin-left: 350px;
+    display: flex;
+    align-items: center;
+}
+.botao1:hover{
+    background-color: #5eb1f5;
+    color: rgb(255, 255, 255);
+}
+.botao1{
+    background-color: #dcefff;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px; 
+    border-radius: 5px;
+}
+.pessoa-logada{
+    padding-left: 10px;
 }
