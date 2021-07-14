@@ -1,14 +1,9 @@
 import './App.css';
+import PaginaFeed from './components/pages/PaginaFeed'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Atividade04
-        </p>
-      </header>
-    </div>
+    <PaginaFeed />
   );
 }
 
