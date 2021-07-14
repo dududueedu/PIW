@@ -4,7 +4,7 @@ import './index.css'
 function Navegador() {
     return (
         <nav className="naveg">
-            <img className="my-logo" src={logo}/>
+            <img className="my-logo" alt="minha-logo" src={logo}/>
             <h3>Linha do Tempo</h3>
             <h3>Postar</h3>
             <h3>Victor</h3>
