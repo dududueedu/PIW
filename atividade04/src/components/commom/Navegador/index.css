@@ -15,7 +15,8 @@
     margin-left: 15px;
 }
 .nav-direita{
-    margin-left: 350px;
+    margin-left: auto;
+    padding-right: 15px;
     display: flex;
     align-items: center;
 }
