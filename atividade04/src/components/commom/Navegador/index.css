@@ -19,13 +19,25 @@
     display: flex;
     align-items: center;
 }
-.botao1:hover{
+.botaoPostar:hover{
     background-color: #5eb1f5;
     color: rgb(255, 255, 255);
 }
-.botao1{
+.botaoPostar{
     background-color: #dcefff;
     color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px; 
+    border-radius: 5px;
+}
+.botaoLT:hover{
+    background-color: #dcefff;
+    color: rgb(0, 0, 0);
+}
+.botaoLT{
+    background-color: #5eb1f5;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     margin: 5px;
     padding: 10px; 

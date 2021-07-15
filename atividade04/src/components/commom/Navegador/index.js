@@ -6,8 +6,8 @@ function Navegador() {
         <nav className="naveg">
             <img className="my-logo" alt="minha-logo" src={logo} />
             <div className="nav-direita">
-                <a className="botao1" href="/"> <p>Linha do Tempo</p> </a>
-                <a className="botao1" href="/"> <p>Postar</p> </a>
+                <a className="botaoLT" href="/"> <p>Linha do Tempo</p> </a>
+                <a className="botaoPostar" href="/"> <p>Postar</p> </a>
                 <p className="pessoa-logada">Victor</p>
             </div>
         </nav>
