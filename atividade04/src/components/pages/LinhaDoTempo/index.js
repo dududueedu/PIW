@@ -1,3 +1,4 @@
+import Post from '../Post'
 import './index.css'
 
 
@@ -26,7 +27,7 @@ function LinhaDoTempo() {
         <div className="linha-do-tempo">
             {infoPosts.map((post) =>{
                 return (
-                    <p>id: {post.id} usuario: {post.nomeUsuario} texto: {post.texto} likes: {post.qtdLikes}</p>
+                    <Post nome = {post.nomeUsuario} msg = {post.texto} qtd_likes = {post.qtdLikes}></Post>
                 )
             })}
         </div>

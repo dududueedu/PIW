@@ -1,11 +1,11 @@
 import './index.css'
 
-function Post({nome, msg, qtdLikes}) {
+function Post({nome, msg, qtd_likes}) {
     return (
         <div className="post">
-            <h3 className="nomePessoa">nome da pessoa</h3>
-            <span className="mensagem">mensagem que a pessoa postou</span>
-            <span className="qtdLikes">quantidade de likes</span>
+            <h3 className="nomePessoa">{nome}</h3>
+            <span className="mensagem">{msg}</span>
+            <span className="qtdLikes">{qtd_likes}</span>
         </div>
     )
 }
