@@ -27,7 +27,7 @@ function LinhaDoTempo() {
         <div className="linha-do-tempo">
             {infoPosts.map((post) =>{
                 return (
-                    <Post nome = {post.nomeUsuario} msg = {post.texto} qtd_likes = {post.qtdLikes}></Post>
+                    <Post key={post.id} nome = {post.nomeUsuario} msg = {post.texto} qtd_likes = {post.qtdLikes}></Post>
                 )
             })}
         </div>
