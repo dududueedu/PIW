@@ -16,25 +16,13 @@
     display: flex;
     align-items: center;
 }
-.naveg .nav-direita .botaoPostar:hover{
+.naveg .nav-direita .botoes:hover{
     background-color: #5eb1f5;
     color: rgb(255, 255, 255);
 }
-.naveg .nav-direita .botaoPostar{
+.naveg .nav-direita .botoes{
     background-color: #dcefff;
     color: rgb(0, 0, 0);
-    text-decoration: none;
-    margin: 5px;
-    padding: 10px; 
-    border-radius: 5px;
-}
-.naveg .nav-direita .botaoLT:hover{
-    background-color: #dcefff;
-    color: rgb(0, 0, 0);
-}
-.naveg .nav-direita .botaoLT{
-    background-color: #5eb1f5;
-    color: rgb(255, 255, 255);
     text-decoration: none;
     margin: 5px;
     padding: 10px; 
@@ -42,4 +30,8 @@
 }
 .naveg .nav-direita .pessoa-logada{
     padding-left: 10px;
+}
+
+.naveg .nav-direita .botoes.active{
+    background-color: #5eb1f5;
 }
