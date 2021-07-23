@@ -1,0 +1,45 @@
+.naveg{
+    height: 50px;
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    background-color: #dcefff;
+    align-items: center;
+}
+.naveg .my-logo{
+    height: 45px;
+    margin-left: 15px;
+}
+.naveg .nav-direita{
+    margin-left: auto;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+}
+.naveg .nav-direita .botaoPostar:hover{
+    background-color: #5eb1f5;
+    color: rgb(255, 255, 255);
+}
+.naveg .nav-direita .botaoPostar{
+    background-color: #dcefff;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px; 
+    border-radius: 5px;
+}
+.naveg .nav-direita .botaoLT:hover{
+    background-color: #dcefff;
+    color: rgb(0, 0, 0);
+}
+.naveg .nav-direita .botaoLT{
+    background-color: #5eb1f5;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px; 
+    border-radius: 5px;
+}
+.naveg .nav-direita .pessoa-logada{
+    padding-left: 10px;
+}
