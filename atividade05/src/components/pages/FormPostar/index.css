@@ -1,1 +1,14 @@
 @import '~antd/dist/antd.css';
+
+.ant-form{
+    margin-top: 50px;
+}
+
+.ant-input{
+    padding: 40px;
+}
+
+.formularioPostar{
+    width: 30%;
+    height: 95vh;
+}

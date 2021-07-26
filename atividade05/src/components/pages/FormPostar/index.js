@@ -1,32 +1,11 @@
 import { Form, Input, Button } from 'antd';
 import './index.css'
 
-function FormPostar (){
-  const onFinish = (values) => {
-    console.log('Success:', values);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
+function FormPostar() {
 
   return (
-    <Form
-      name="basic"
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
+    <Form className="formularioPostar">
       <Form.Item
-        label="Username"
         name="username"
         rules={[
           {
@@ -35,17 +14,17 @@ function FormPostar (){
           },
         ]}
       >
-        <Input />
+        <Input placeholder="escreva sua mensagem" />
       </Form.Item>
 
       <Form.Item
         wrapperCol={{
-          offset: 8,
+          offset: -1,
           span: 16,
         }}
       >
         <Button type="primary" htmlType="submit">
-          Submit
+          Submeter
         </Button>
       </Form.Item>
     </Form>

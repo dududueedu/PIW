@@ -6,9 +6,7 @@ function PaginaPostar() {
     return (
         <div className="container">
             <Navegador />
-            <div>
-                <FormPostar />
-            </div>
+            <FormPostar />
         </div>
     )
 }
