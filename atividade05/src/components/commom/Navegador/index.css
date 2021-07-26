@@ -17,7 +17,7 @@
     align-items: center;
 }
 .naveg .nav-direita .botoes:hover{
-    background-color: #5eb1f5;
+    background-color: #1890ff;
     color: rgb(255, 255, 255);
 }
 .naveg .nav-direita .botoes{
@@ -33,5 +33,5 @@
 }
 
 .naveg .nav-direita .botoes.active{
-    background-color: #5eb1f5;
+    background-color: #1890ff;
 }
