@@ -10,6 +10,7 @@
 .formulario{
     width: 700px;
     height: 95vh;
+    background-image: url("../../assets/Background.jpg");
     display: flex;
     justify-content: center;
 }
