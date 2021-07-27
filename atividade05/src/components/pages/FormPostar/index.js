@@ -1,8 +1,12 @@
 import { Form, Input, Button } from 'antd';
+import history from '../../History'
 import './index.css'
 
 function FormPostar() {
 
+  function BackFeed(){
+    history.push("/")
+  }
   return (
     <div className="formulario">
       <Form className="formularioPostar">
@@ -24,7 +28,7 @@ function FormPostar() {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" onClick={BackFeed}>
             Submeter
           </Button>
         </Form.Item>

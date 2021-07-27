@@ -1,10 +1,11 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom'
 import PaginaFeed from './components/pages/PaginaFeed'
-import PaginaPostar from './components/pages/PaginaPostar';
+import PaginaPostar from './components/pages/PaginaPostar'
+import history from './components/History'
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <Route exact path="/">
         <PaginaFeed />
       </Route>
@@ -12,7 +13,7 @@ function App() {
       <Route path="/pagpostar">
         <PaginaPostar />
       </Route>
-    </BrowserRouter>
+    </Router>
   );
 }
 
