@@ -7,8 +7,12 @@
 .ant-input{
     padding: 40px;
 }
-
-.formularioPostar{
-    width: 30%;
+.formulario{
+    width: 700px;
     height: 95vh;
+    display: flex;
+    justify-content: center;
+}
+.formularioPostar{
+    width: 60%;
 }
