@@ -2,24 +2,11 @@ import Post from '../Post'
 import './index.css'
 
 
-let infoPosts = [
-    {
+let infoPosts = [{
         id: 1,
-        nomeUsuario: "Karine",
+        nomeUsuario: "Nicolau",
         texto: "Menino, tá quente demais hoje",
         qtdLikes: 7
-    },
-    {
-        id: 2,
-        nomeUsuario: "Nicolau",
-        texto: "Num aguento mais essa quintura",
-        qtdLikes: 3
-    }, 
-    {
-        id: 3,
-        nomeUsuario: "Tribos",
-        texto: "Sigam a TribosMusicArt no Instagram",
-        qtdLikes: 3
     }]
 
 function LinhaDoTempo() {
