@@ -1,5 +1,6 @@
 import './index.css'
 import { useState } from 'react'
+import { Form, Input } from 'antd'
 
 function Post({ nome, msg, qtd_likes }) {
 
@@ -30,6 +31,17 @@ function Post({ nome, msg, qtd_likes }) {
                     <span className="comment-post">"Armaria! nem me diga"</span>
                 </div>
             </div>
+
+            <Form className="formularioComment">
+                <Form.Item name="username"
+                    rules={[{
+                        required: true,
+                        message: 'Por favor, escreva sua mensagem.',
+                    }]}>
+                    <Input placeholder="escreva sua mensagem" />
+                </Form.Item>
+            </Form>
+
         </div>
     )
 }
