@@ -1,0 +1,19 @@
+@import '~antd/dist/antd.css';
+
+.ant-form{
+    margin-top: 50px;
+}
+
+.ant-input{
+    padding: 40px;
+}
+.formulario{
+    width: 700px;
+    height: 95vh;
+    background-image: url("../../assets/Background.jpg");
+    display: flex;
+    justify-content: center;
+}
+.formularioPostar{
+    width: 60%;
+}

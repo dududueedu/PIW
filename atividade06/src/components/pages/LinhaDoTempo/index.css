@@ -1,0 +1,8 @@
+.linha-do-tempo{
+    width: 700px;
+    height: 95vh;
+    display: flex;
+    background-image: url("../../assets/Background.jpg");
+    flex-direction: column;
+    align-items: center;
+}
