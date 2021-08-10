@@ -1,6 +1,6 @@
 @import '~antd/dist/antd.css';
 
-.ant-form{
+.ant-form .formularioLogin{
     margin-top: 50px;
 }
 
